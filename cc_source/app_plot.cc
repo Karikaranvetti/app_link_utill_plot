@@ -43,17 +43,10 @@ Napi::Value app_plot::start(const Napi::CallbackInfo& info) {
     th_sub = std::thread([this] {
         app_plot_data_sub_thread(); });
     th_sub.detach();
-
-    std::thread th_bp;
-    th_bp = std::thread([this] {
-        app_plot_synq_thread(); });
-    th_bp.detach();
-
-
     return returnValue;
 }
 
-// beacon publisher
+ 
 
 void app_plot::app_plot_req_pub_thread() {
     app_device_config_init_connector_pub();
@@ -63,11 +56,7 @@ void app_plot::app_plot_data_sub_thread() {
     app_plot_config_init_connector_sub();
 }
 
-void app_plot::app_plot_synq_thread() {
-    // pq_ha_synq_live_watch_time_synq_runner();
-}
-
-
+ 
 Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
   return app_plot::Init(env, exports);
 }
