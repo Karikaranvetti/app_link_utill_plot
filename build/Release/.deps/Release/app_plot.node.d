@@ -1,0 +1,1 @@
+cmd_Release/app_plot.node := ln -f "Release/obj.target/app_plot.node" "Release/app_plot.node" 2>/dev/null || (rm -rf "Release/app_plot.node" && cp -af "Release/obj.target/app_plot.node" "Release/app_plot.node")

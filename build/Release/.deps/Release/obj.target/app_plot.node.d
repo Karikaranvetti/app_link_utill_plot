@@ -1,0 +1,1 @@
+cmd_Release/obj.target/app_plot.node := g++ -o Release/obj.target/app_plot.node -shared -pthread -rdynamic -m64  -Wl,-soname=app_plot.node -Wl,--start-group Release/obj.target/app_plot/cc_source/app_plot.o -Wl,--end-group -L/usr/local/lib -lzmq

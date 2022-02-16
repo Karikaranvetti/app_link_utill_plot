@@ -1,0 +1,15 @@
+{
+  "name": "app_link_utill_plot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karikaran",
+  "license": "ISC",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^4.3.0"
+  }
+}
