@@ -31,7 +31,7 @@ Napi::Value app_plot::example(const Napi::CallbackInfo& info) {
 
 Napi::Value app_plot::start(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    Napi::String returnValue = Napi::String::New(env, "this is hello hasidi from App_plot module");
+    Napi::String returnValue = Napi::String::New(env, " hello this is from App_plot module");
 
     /*commit thread*/
     std::thread th_pub;
