@@ -11,8 +11,10 @@
 void app_plot_config_init_connector_sub() {
   void *context = zmq_ctx_new();
   void *socket = zmq_socket(context, ZMQ_SUB);
+   zmq_setsockopt(socket, ZMQ_SUBSCRIBE, "", 0);
   zmq_connect(socket, "tcp://127.0.0.1:5553");
-  zmq_setsockopt(socket, ZMQ_SUBSCRIBE, "", 0);
+  printf("subcriber Init ");
+ 
 
   while(1) {
      

@@ -1,7 +1,8 @@
+#include <thread>
+#include <chrono>  
 #include "app_plot.h"
 #include "app_pub.h"
 #include "app_sub.h"
-#include <thread>
  
 
 
@@ -43,6 +44,8 @@ Napi::Value app_plot::start(const Napi::CallbackInfo& info) {
     th_sub = std::thread([this] {
         app_plot_data_sub_thread(); });
     th_sub.detach();
+
+    std::this_thread::sleep_for(std::chrono::seconds(10));
     return returnValue;
 }
 

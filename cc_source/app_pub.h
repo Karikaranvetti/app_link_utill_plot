@@ -10,10 +10,12 @@
 
 void app_device_config_init_connector_pub() {
    int hwm = 2000;
+  
   void *context = zmq_ctx_new();
   void *socket = zmq_socket(context, ZMQ_PUB);
   zmq_setsockopt(socket, ZMQ_SNDHWM, &hwm, sizeof (int));
- zmq_bind(socket, "tcp://*:5553");
+  zmq_bind(socket, "tcp://*:5553");
+  printf("Pubilisher Init ");
   sleep(1);
   //  Initialize random number generator
     srandom ((unsigned) time (NULL));
