@@ -13,7 +13,7 @@ void app_device_config_init_connector_pub() {
   void *context = zmq_ctx_new();
   void *socket = zmq_socket(context, ZMQ_PUB);
   zmq_setsockopt(socket, ZMQ_SNDHWM, &hwm, sizeof (int));
- zmq_bind(socket, "tcp://*:8007");
+ zmq_bind(socket, "tcp://*:8008");
   sleep(1);
   //  Initialize random number generator
     srandom ((unsigned) time (NULL));
@@ -21,6 +21,7 @@ void app_device_config_init_connector_pub() {
   while(1) {
   
   device_data data;
+  data.ts=time(NULL);
   data.device_id=(rand() % (3 - 1 + 1)) + 1;
   data.app_id=(rand() % (255 - 1 + 1)) + 1;
   data.recived_data=(rand() % (1024 - 1 + 1)) + 1;

@@ -15,10 +15,13 @@ public:
     Napi::Value example(const Napi::CallbackInfo& info);
     Napi::Value start(const Napi::CallbackInfo& info);
     Napi::Value set_pub_port_list(const Napi::CallbackInfo& info);
+    Napi::Value get_data(const Napi::CallbackInfo& info);
+    Napi::Value set_buffer(const Napi::CallbackInfo& info);
+    
 
 private:
   
-    void app_plot_req_pub_thread1(void* sock);
+    void app_plot_data_process_thread();
     void app_plot_req_pub_thread();
     void app_plot_data_sub_thread();
     void app_plot_synq_thread();

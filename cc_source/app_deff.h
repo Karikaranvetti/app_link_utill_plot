@@ -37,4 +37,10 @@ typedef struct __attribute__ ((packed)) {
 struct in_addr pub_port_list[UINT8_MAX];    //in_addr is a 32 bit ip address struct
 uint32_t pub_port_list_len = 0;
 
+device_data* data_que[200];
+device_data* data_que2[200];
+int flag=0;
+int data_que_count1=0;
+int data_que_count2=0;
+
  
