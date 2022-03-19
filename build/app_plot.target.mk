@@ -41,13 +41,13 @@ CFLAGS_CC_Debug := \
 	-std=gnu++14
 
 INCS_Debug := \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/include/node \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/src \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/openssl/config \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/openssl/openssl/include \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/uv/include \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/zlib \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/v8/include \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/include/node \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/src \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/openssl/config \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/openssl/openssl/include \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/uv/include \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/zlib \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/v8/include \
 	-I/home/harishbaana/Paraqum/learn/Task/ZMQ/app_link_utill_plot/node_modules/node-addon-api
 
 DEFS_Release := \
@@ -86,13 +86,13 @@ CFLAGS_CC_Release := \
 	-std=gnu++14
 
 INCS_Release := \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/include/node \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/src \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/openssl/config \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/openssl/openssl/include \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/uv/include \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/zlib \
-	-I/home/harishbaana/.cache/node-gyp/16.14.0/deps/v8/include \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/include/node \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/src \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/openssl/config \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/openssl/openssl/include \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/uv/include \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/zlib \
+	-I/home/harishbaana/.cache/node-gyp/16.14.2/deps/v8/include \
 	-I/home/harishbaana/Paraqum/learn/Task/ZMQ/app_link_utill_plot/node_modules/node-addon-api
 
 OBJS := \

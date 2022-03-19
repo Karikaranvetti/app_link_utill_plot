@@ -6,6 +6,7 @@
 #include <string.h>
 #include <inttypes.h>
 #include "app_deff.h"
+#include "app_data_process.h"
 
 
 
@@ -36,23 +37,15 @@ void app_plot_config_init_connector_sub() {
     zmq_msg_init(&in_msg);
     zmq_recv(socket, &in_msg,sizeof(in_msg), 0);
     data = (device_data*)(&in_msg);
-    if (flag==0){
-      data_que[0][data_que_count1].app_id=data->app_id;
-      data_que[0][data_que_count1].device_id=data->device_id;
-      data_que[0][data_que_count1].recived_data=data->recived_data;
-      data_que[0][data_que_count1].send_data=data->send_data;
-      data_que[0][data_que_count1].ts=data->ts;
-      data_que_count1++;
 
+     
+    
+    if (flag==0){
+
+      push(&buffer_que1, *data);
     } else if(flag==1){
-      data_que[1][data_que_count2].app_id=data->app_id;
-      data_que[1][data_que_count2].device_id=data->device_id;
-      data_que[1][data_que_count2].recived_data=data->recived_data;
-      data_que[1][data_que_count2].send_data=data->send_data;
-      data_que[1][data_que_count2].ts=data->ts;
-      data_que_count2++;
+      push(&buffer_que2, *data);
     }
-    printf("The data time is :%d\nThe device id is :%d\nThe App id is :%d\nThe recive data is :%ld\nThe device send data is :%ld\n\nthe count1 %d and 2%d\n",data->ts,data->device_id,data->app_id,data->recived_data,data->send_data,data_que_count1,data_que_count2);
     sleep(1);
   }
   

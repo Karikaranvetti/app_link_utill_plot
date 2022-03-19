@@ -17,6 +17,7 @@ public:
     Napi::Value set_pub_port_list(const Napi::CallbackInfo& info);
     Napi::Value get_data(const Napi::CallbackInfo& info);
     Napi::Value set_buffer(const Napi::CallbackInfo& info);
+    Napi::Value get_watch(const Napi::CallbackInfo& info);
     
 
 private:
