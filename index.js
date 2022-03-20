@@ -17,7 +17,7 @@ console.log(obj.set_pub_port_list(pub_port_list))
     obj.set_buffer(app_plot_buffer);
     var app_plot_buffer_rp = 0;
  
-console.log(obj.start())
+obj.start()
 app_plot_buffer_rp=0;
 
 function read_lwatch_data() {
@@ -32,16 +32,13 @@ function read_lwatch_data() {
             var data_app_id = app_plot_buffer[(app_plot_buffer_rp*7 )+2]; 
             var data_send_data = app_plot_buffer[(app_plot_buffer_rp*7 )+3];
             var data_recived_data = app_plot_buffer[(app_plot_buffer_rp*7 )+5];
-             
-              
+               
             console.log("data_ts: " + data_ts);
             console.log("data_device_id: " + data_device_id);
             console.log("data_app_id: " + data_app_id);
             console.log("data_recived_data: " + data_recived_data);
             console.log("data_send_data: " + data_send_data+"\n");
                 
-            // }
-
             app_plot_buffer_rp++;
             if (app_plot_buffer_rp === 8192) {
                 app_plot_buffer_rp = 0;

@@ -28,9 +28,7 @@ Napi::Object app_plot::Init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-app_plot::app_plot(const Napi::CallbackInfo& info):Napi::ObjectWrap<app_plot>(info) {
-  printf("Hello this is from C side\n");
-}
+app_plot::app_plot(const Napi::CallbackInfo& info):Napi::ObjectWrap<app_plot>(info) {}
 
 Napi::Value app_plot::set_pub_port_list(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
@@ -54,7 +52,7 @@ Napi::Value app_plot::set_pub_port_list(const Napi::CallbackInfo& info) {
         pub_port_list[pub_port_list_len] = ip_addr;
         pub_port_list_len++;
     }
-    printf( "APP_PLOT :: SET IP LIST :: %u"  , array.Length());
+    // printf( "APP_PLOT :: SET IP LIST :: %u"  , array.Length());
     return Napi::String::New(env, "success");
 }
 
@@ -79,7 +77,7 @@ Napi::Value app_plot::set_buffer(const Napi::CallbackInfo& info) {
 
 Napi::Value app_plot::start(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    Napi::String returnValue = Napi::String::New(env, " hello this is from App_plot module");
+    Napi::String returnValue = Napi::String::New(env, "success");
 
     /*commit thread*/
     std::thread th_pub;
