@@ -2,13 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include <netinet/in.h>
-// #include <arpa/inet.h>
 #include <inttypes.h>
-// #include "app_data_process.h"
-
-
-
+ 
 typedef struct __attribute__ ((packed)) {
     uint32_t ts;
     uint16_t device_id;
@@ -31,37 +26,25 @@ typedef struct __attribute__ ((packed)) {
 
 typedef struct __attribute__ ((packed)) 
 {
-  uint16_t count : 12, r : 4;
+  uint16_t count : 13, r : 3;
 }data_que_count;
 
 
-typedef struct node {
+typedef struct collector_data {
 	device_data data;
-	// Lower values indicate higher priority
-	uint32_t priority;
-	struct node* next;
+	uint32_t priority;  // Lower values indicate higher priority
+	struct collector_data* next;
 
-} Node;
-
-// typedef struct Pub_device_addr{
-//   string ip_addr;
-//   uint32_t port;
-//   uint8_t device_id;
-
-// } Pub_device_addr;
-
+} collector_data;
 
 struct in_addr pub_port_list[UINT8_MAX];    //in_addr is a 32 bit ip address struct
 uint32_t pub_port_list_len = 0;
 
-device_data* data_que[200];
-data_que_count data_count[200];
+device_data* data_que;
+data_que_count data_count;
 int flag=0;
-int data_que_count1=0;
-int data_que_count2=0;
-
-Node* buffer_que1 =NULL;
-Node* buffer_que2 =NULL;
+collector_data* buffer_que1 =NULL;
+collector_data* buffer_que2 =NULL;
 
 
  

@@ -8,9 +8,6 @@
 #include "app_deff.h"
 #include "app_data_process.h"
 
-
-
-
 void app_plot_config_init_connector_sub() {
 
   int len = 0;
@@ -38,15 +35,12 @@ void app_plot_config_init_connector_sub() {
     zmq_recv(socket, &in_msg,sizeof(in_msg), 0);
     data = (device_data*)(&in_msg);
 
-     
-    
     if (flag==0){
-
-      push(&buffer_que1, *data);
+      push_cdata(&buffer_que1, *data);
     } else if(flag==1){
-      push(&buffer_que2, *data);
+      push_cdata(&buffer_que2, *data);
     }
-    sleep(1);
+    // sleep(1);
   }
   
 zmq_close(socket);

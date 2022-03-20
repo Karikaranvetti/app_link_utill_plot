@@ -17,10 +17,8 @@ Napi::Object app_plot::Init(Napi::Env env, Napi::Object exports) {
       DefineClass(env,"app_plot",{
                   InstanceMethod("start", &app_plot::start),
                   InstanceMethod("set_pub_port_list", &app_plot::set_pub_port_list),
-                  InstanceMethod("get_data", &app_plot::get_data),
                   InstanceMethod("set_buffer", &app_plot::set_buffer),
-                  InstanceMethod("get_watch", &app_plot::get_watch),
-                  InstanceMethod("example", &app_plot::example)});
+                  InstanceMethod("get_data", &app_plot::get_data)});
 
   Napi::FunctionReference* constructor = new Napi::FunctionReference();
   *constructor = Napi::Persistent(func);
@@ -60,71 +58,22 @@ Napi::Value app_plot::set_pub_port_list(const Napi::CallbackInfo& info) {
     return Napi::String::New(env, "success");
 }
 
-
-Napi::Value app_plot::example(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env(); 
-    return Napi::String::New(env,"some string test");
-}
-
-Napi::Value app_plot::get_data(const Napi::CallbackInfo& info) {
-    Napi::Env env = info.Env(); 
-    // Napi::Object ret = Napi::Object::New(env);
-    
-    // if (flag==0){
-    //     // array[1]=data_que2;
-    //     ret.Set("data_que", data_que2);
-    //     return ret;
-    // }else if(flag==1){
-    //     // array[1]=data_que1;
-    //     ret.Set("data_que", data_que);
-    //     return ret;
-
-    // }
-    return Napi::String::New(env,"some string test");
-}
-
-
 Napi::Value app_plot::set_buffer(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    int info_length = info.Length();
-    if (info_length <= 1 || !info[0].IsNumber() || !info[1].IsTypedArray()) {
+   
+    if (!info[0].IsTypedArray()) {
         printf(  " APP_PLOT :: SET BUFFERS :: Invalid Arguments"   "\n");
         return Napi::String::New(env, "failed");
     }
-
-    uint32_t rule_id = info[0].As<Napi::Number>();
-
-    if (rule_id ==0) {
-        data_que[0] = (device_data*) info[1].As<Napi::Uint16Array>().Data();
+        data_que= (device_data*) info[0].As<Napi::Uint16Array>().Data();
         return Napi::String::New(env, "success");
-    }else if(rule_id==1){
-
-        data_que[1] = (device_data*) info[1].As<Napi::Uint32Array>().Data();
-        return Napi::String::New(env, "success");
-
-    }
-    return Napi::String::New(env, "failed");
 }
  
 
- Napi::Value app_plot::get_watch(const Napi::CallbackInfo& info) {
+ Napi::Value app_plot::get_data(const Napi::CallbackInfo& info) {
     Napi::Env env = info.Env();
-    // int info_length = info.Length();
-    if (!info[0].IsNumber() ) {
-        // printf("%d",info[0].As<Napi::Number>());
-        printf(  "PQ :: LWATCH :: GET WATCH :: Invalid Arguments"   "\n");
-        return Napi::String::New(env, "failed");
-    }
-
-    uint32_t rule_id = info[0].As<Napi::Number>();
-    // uint32_t version = info[1].As<Napi::Number>();
-    if (rule_id < 255) {
-        printf("this is fromc side getwatch count is : %d\n", data_count[rule_id].count);
-         
-            return Napi::Number::New(env, data_count[rule_id].count);
-         
-    }
-    return Napi::Number::New(env, -1);
+    //  printf("this is fromc side getwatch count is : %d\n", data_count.count);
+    return Napi::Number::New(env, data_count.count);
 }
 
 

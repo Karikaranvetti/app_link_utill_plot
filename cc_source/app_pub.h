@@ -1,5 +1,6 @@
 #pragma once
 #include "zmq.h"
+#include <chrono>  
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -15,7 +16,6 @@ void app_device_config_init_connector_pub() {
   zmq_setsockopt(socket, ZMQ_SNDHWM, &hwm, sizeof (int));
  zmq_bind(socket, "tcp://*:8008");
   sleep(1);
-  //  Initialize random number generator
     srandom ((unsigned) time (NULL));
 
   while(1) {
@@ -30,7 +30,7 @@ void app_device_config_init_connector_pub() {
    
     zmq_send(socket, &data,sizeof (data), 0);
      
-    sleep(1);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1));
   }
 
 // zmq_close(socket);
