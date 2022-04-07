@@ -15,11 +15,11 @@ void app_plot_config_init_connector_sub() {
   void *context = zmq_ctx_new();
   void *socket = zmq_socket(context, ZMQ_SUB);
    zmq_setsockopt(socket, ZMQ_SUBSCRIBE, "", 0);
-  zmq_connect(socket, "tcp://127.0.0.1:8008");
+  zmq_connect(socket, "tcp://127.0.0.1:8010");
   printf("subcriber Init ");
 
     for (uint32_t rmt_icnt = 0; rmt_icnt < pub_port_list_len; rmt_icnt++) {
-        len = sprintf(rem_url, "%s%s%s", (char*) "tcp://", inet_ntoa(pub_port_list[rmt_icnt]), (char*) ":8008");
+        len = sprintf(rem_url, "%s%s%s", (char*) "tcp://", inet_ntoa(pub_port_list[rmt_icnt]), (char*) ":8010");
         rem_url[len] = '\0';
         printf(  "APP_PLOT :: PUB IP :::Subscribed to %s"   "\n", rem_url);
         zmq_connect(socket, rem_url);
@@ -36,11 +36,11 @@ void app_plot_config_init_connector_sub() {
     data = (device_data*)(&in_msg);
 
     if (flag==0){
-      push_cdata(&buffer_que1, *data);
+      enqueue(*data,buffer_que1 ,&buffer_que1_count);
+
     } else if(flag==1){
-      push_cdata(&buffer_que2, *data);
+      enqueue(*data,buffer_que2 ,&buffer_que2_count);
     }
-    // sleep(1);
   }
   
 zmq_close(socket);

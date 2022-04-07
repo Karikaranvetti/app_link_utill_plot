@@ -26,7 +26,6 @@ function read_lwatch_data() {
         console.log("live watch disconnected");
     } else {
         while (app_plot_buffer_rp !== wp) {
-            console.log("")
             var data_ts = app_plot_buffer[(app_plot_buffer_rp*7 )];
             var data_device_id = app_plot_buffer[(app_plot_buffer_rp*7 )+1];
             var data_app_id = app_plot_buffer[(app_plot_buffer_rp*7 )+2]; 

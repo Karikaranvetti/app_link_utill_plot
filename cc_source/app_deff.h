@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include <inttypes.h>
  
 typedef struct __attribute__ ((packed)) {
@@ -43,8 +44,16 @@ uint32_t pub_port_list_len = 0;
 device_data* data_que;
 data_que_count data_count;
 int flag=0;
-collector_data* buffer_que1 =NULL;
-collector_data* buffer_que2 =NULL;
+// collector_data* buffer_que1 =NULL;
+// collector_data* buffer_que2 =NULL;
+
+device_data buffer_que1[8192];
+device_data buffer_que2[8192];
+
+uint16_t buffer_que1_count=0;
+uint16_t buffer_que2_count=0;
+ 
+uint32_t highestPriority = time(NULL)+6;
 
 
  
