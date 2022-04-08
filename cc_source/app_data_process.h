@@ -29,7 +29,7 @@ device_data dequeue(device_data* que ,uint16_t *size){
 }
 void data_process(){
     data_count.count=0;      
-    while (true){   
+    while (true){
         flag=0; 
 		while(buffer_que1_count != 0){
 			 
