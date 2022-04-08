@@ -30,9 +30,8 @@ device_data dequeue(device_data* que ,uint16_t *size){
 void data_process(){
     data_count.count=0;      
     while (true){
-        flag=0; 
+        flag=0;
 		while(buffer_que1_count != 0){
-			 
             device_data data=dequeue(buffer_que1,&buffer_que1_count);
 			data_que[data_count.count].app_id=data.app_id;
 			data_que[data_count.count].device_id=data.device_id;
@@ -44,7 +43,7 @@ void data_process(){
             }
 		}
         sleep(5);
-        flag=1; 
+        flag=1;
 		while(buffer_que2_count != 0 ){
             device_data data=dequeue(buffer_que2,&buffer_que2_count);
 			data_que[data_count.count].app_id=data.app_id;
