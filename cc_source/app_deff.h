@@ -4,8 +4,9 @@
 #include <string.h>
 #include <time.h>
 #include <inttypes.h>
- 
-typedef struct __attribute__ ((packed)) {
+
+typedef struct __attribute__((packed))
+{
   uint32_t ts;
   uint16_t device_id;
   uint16_t app_id2;
@@ -13,35 +14,31 @@ typedef struct __attribute__ ((packed)) {
   uint16_t app_id1;
   uint64_t send_data;
   uint64_t recived_data;
-}device_data;
- 
- 
-struct Message{
+} device_data;
+
+struct Message
+{
   uint32_t one;
   uint64_t two;
   int arr[3];
 };
 
-typedef struct __attribute__ ((packed)) {
+typedef struct __attribute__((packed))
+{
   uint16_t count : 13, r : 3;
-}data_que_count;
+} data_que_count;
 
-
-struct in_addr pub_port_list[UINT8_MAX];    //in_addr is a 32 bit ip address struct
+struct in_addr pub_port_list[UINT8_MAX]; // in_addr is a 32 bit ip address struct
 uint32_t pub_port_list_len = 0;
 
-device_data* data_que;
+device_data *data_que;
 data_que_count data_count;
-int flag=0;
- 
+int flag = 0;
 
 device_data buffer_que1[8192];
 device_data buffer_que2[8192];
 
-uint16_t buffer_que1_count=0;
-uint16_t buffer_que2_count=0;
- 
-uint32_t highestPriority = time(NULL)+6;
+uint16_t buffer_que1_count = 0;
+uint16_t buffer_que2_count = 0;
 
-
- 
+uint32_t highestPriority = time(NULL) + 6;
