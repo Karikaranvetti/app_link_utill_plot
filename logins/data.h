@@ -26,13 +26,5 @@ typedef struct __attribute__ ((packed)) {
   int arr[3];
 };
 
-// typedef struct Pub_device_addr{
-//   string ip_addr;
-//   uint32_t port;
-//   uint8_t device_id;
-
-// } Pub_device_addr;
-
-
 struct in_addr pub_port_list[UINT8_MAX];    //in_addr is a 32 bit ip address struct
 uint32_t pub_port_list_len = 0;

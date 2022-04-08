@@ -19,7 +19,6 @@ public:
     
 
 private:
-  
     void app_plot_data_process_thread();
     void app_plot_req_pub_thread();
     void app_plot_data_sub_thread();

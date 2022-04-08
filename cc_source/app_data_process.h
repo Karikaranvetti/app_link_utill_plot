@@ -15,13 +15,12 @@ device_data dequeue(device_data* que ,uint16_t *size){
     int ind=0;
     for (int i = 0; i <= *size; i++) {
  
-         if (highestPriority> que[i].ts) {
+        if (highestPriority> que[i].ts) {
             highestPriority = que[i].ts;
             ind = i;
         }
     }
     device_data temp =que[ind];
-    
     for (int i = ind; i < *size; i++) {
          que[i] = que[i + 1];
      }
@@ -53,7 +52,7 @@ void data_process(){
 			data_que[data_count.count].recived_data=data.recived_data;
 			data_que[data_count.count].send_data=data.send_data;
 			data_que[data_count.count].ts=data.ts;
-             if (data.ts){
+            if (data.ts){
                 data_count.count++;
             }
 
