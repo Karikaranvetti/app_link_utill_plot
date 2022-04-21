@@ -8,8 +8,6 @@
 #include "app_deff.h"
 #include "app_data_process.h"
 
-
-
 void app_plot_config_init_connector_sub()
 {
   int len = 0;
@@ -42,11 +40,11 @@ void app_plot_config_init_connector_sub()
 
     if (flag == 0)
     {
-      enqueue(*data, Buffer_que1,flag,&wp_count1);
+      enqueue(*data, Buffer_que1, flag, &wp_count1);
     }
     else if (flag == 1)
     {
-     enqueue(*data, Buffer_que2,flag,&wp_count2);
+      enqueue(*data, Buffer_que2, flag, &wp_count2);
     }
   }
 

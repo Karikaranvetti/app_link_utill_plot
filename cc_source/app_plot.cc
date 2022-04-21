@@ -55,8 +55,8 @@ Napi::Value app_plot::set_pub_port_list(const Napi::CallbackInfo &info)
         pub_port_list[pub_port_list_len] = ip_addr;
         pub_port_list_len++;
     }
-    // printf( "APP_PLOT :: SET IP LIST :: %u"  , array.Length());
-               
+    
+
     return Napi::String::New(env, "success");
 }
 
@@ -116,7 +116,7 @@ void app_plot::app_plot_data_sub_thread()
 
 void app_plot::app_plot_data_process_thread()
 {
-    //  sleep(5);
+
     data_process();
 }
 
