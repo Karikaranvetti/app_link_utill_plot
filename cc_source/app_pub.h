@@ -14,7 +14,7 @@ void app_device_config_init_connector_pub()
   void *context = zmq_ctx_new();
   void *socket = zmq_socket(context, ZMQ_PUB);
   zmq_setsockopt(socket, ZMQ_SNDHWM, &hwm, sizeof(int));
-  zmq_bind(socket, "tcp://*:8010");
+  zmq_bind(socket, "tcp://*:8011");
   sleep(1);
   srandom((unsigned)time(NULL));
 

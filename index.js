@@ -5,11 +5,15 @@ var obj = new addon.app_plot();
 var pub_port_list = [{
     'id': 1,
     'ip': "192.168.1.55"
-}/*,
+},
     {
-    'id': 8,
-    'ip': "127.0.0.1"
-    }*/
+    'id': 2,
+    'ip': "127.0.0.2"
+    },
+    {
+        'id': 3,
+        'ip': "192.168.1.56"
+        }
 ];
 
 console.log(obj.set_pub_port_list(pub_port_list))

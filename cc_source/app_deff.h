@@ -42,3 +42,36 @@ uint16_t buffer_que1_count = 0;
 uint16_t buffer_que2_count = 0;
 
 uint32_t highestPriority = time(NULL) + 6;
+
+// device_data Buffer_que1[8][8192];
+uint16_t Buffer_que1_count[8] = {0};
+// device_data Buffer_que2[8][8192];
+uint16_t Buffer_que2_count[8] = {0};
+
+uint16_t wp_count1=0;
+uint16_t wp_count2=0;
+
+uint16_t rp_count1=0;
+uint16_t rp_count2=0;
+
+uint16_t read_count1[8]={0};
+ uint16_t read_count2[8]={0};
+
+
+ typedef struct __attribute__((packed))
+{
+  device_data Buffer[8192];
+} Buffer_que;
+
+Buffer_que Buffer_que1[8];
+Buffer_que Buffer_que2[8];
+
+
+
+ 
+ 
+
+
+  
+ 
+
